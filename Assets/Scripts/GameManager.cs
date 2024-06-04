@@ -15,14 +15,14 @@ public class GameManager : MonoBehaviour
     public List<FurnitureModel> furnitureModels;
     public GameObject playerObject;
 
-    public SerializableDictionary<string, GameStage> stages;
+    public List<GameStage> stages;
     public string startStage;
 
     public CanvasGroup fadeCanvasGroup;
     public float fadeDuration = 1.0f;
 
     private bool started = false;
-    private string currentStage = "TUTORIAL";
+    private string currentStage;
 
     void Awake()
     {
@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         started = false;
+        currentStage = startStage;
 
         if (fadeCanvasGroup != null)
         {
@@ -51,6 +52,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+    
+    GameStage FindStageByName(string name)
+    {
+        foreach (var stage in stages)
+        {
+            if (stage.stageName == name) return stage;
+        }
+        return null;
     }
 
     public void StartGame()
@@ -64,22 +74,28 @@ public class GameManager : MonoBehaviour
     {
         started = false;
         // UI 끄기
-        GameStage stage = stages[currentStage];
+        GameStage stage = FindStageByName(currentStage);
         if (stage != null) {
             // 조건 확인 후 완료 시, 다음 스테이지로 이동
             if (stage.CheckAllConditions())
             {
                 // 클리어 UI
+                Debug.Log("Clear!");
             }
             else
             {
                 // 실패
+                Debug.Log("No Clear!");
             }
         }
     }
 
     public void TestSpawnFurniture0() {
         SpawnFurniture(0, playerObject.transform.position + new Vector3(0, 2, -5));
+    }
+
+    public void TestSpawnFurniture1() {
+        SpawnFurniture(1, playerObject.transform.position + new Vector3(0, 2, -3));
     }
 
     public void SpawnFurniture(int index, Vector3 position)
