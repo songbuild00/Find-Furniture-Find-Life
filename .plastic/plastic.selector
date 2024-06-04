@@ -1,0 +1,4 @@
+repository "Find Furniture, Find Life@Pascucci@cloud"
+  path "/"
+    br "/main"
+    co "/main"
