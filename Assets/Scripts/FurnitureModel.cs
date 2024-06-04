@@ -38,7 +38,7 @@ public class FurnitureModel
         simpleInteractable.selectEntered.AddListener((args) => OnSelectEntered(args, moveable));
         simpleInteractable.selectExited.AddListener((args) => OnSelectExited(args, moveable));
 
-        gameObject.tag = "Furniture";
+        gameObject.tag = "Furniture-" + type.ToString();
         Debug.Log("Spawned!");
     }
 

@@ -2,31 +2,52 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class GameStage
 {
     public string stageName;
     public List<Condition> conditions;
+    public string conditionText;
 
     public string nextStage;
     public string prevStage;
 
     public bool CheckAllConditions() {
-        GameObject[] furnitures = GameObject.FindGameObjectsWithTag("Furniture");
-        foreach (var furniture in furnitures) {
-            
+        foreach (var condition in conditions)
+        {
+            if (!condition.Check()) return false;
         }
-        return false;
+        return true;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class Condition
     {
         public ConditionType type;
-        public List<GameObject> objects;
+        public List<FurnitureModel.FurnitureType> furnitureTypes;
         public double value;
+
+        public bool Check()
+        {
+            if (type == ConditionType.NEARBY)
+            {
+                for (int i = 0; i < furnitureTypes.Count; i++)
+                {
+                    for (int j = i + 1; j < furnitureTypes.Count; j++)
+                    {
+                        GameObject furniture1 = GameObject.FindGameObjectWithTag("Furniture-" + furnitureTypes[i].ToString());
+                        GameObject furniture2 = GameObject.FindGameObjectWithTag("Furniture-" + furnitureTypes[j].ToString());
+                        if (furniture1 == null || furniture2 == null) return false;
+                        if (Vector3.Distance(furniture1.transform.position, furniture2.transform.position) > value) return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
     }
 
     public enum ConditionType
