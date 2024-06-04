@@ -44,25 +44,25 @@ public class FurnitureModel
 
     private void OnSelectEntered(SelectEnterEventArgs args, Moveable moveable)
     {
-        var controller = args.interactorObject.transform.GetComponent<XRController>();
-        if (controller != null) {
-            if (controller.controllerNode == XRNode.LeftHand) {
-                moveable.StartPushing();
-            } else if (controller.controllerNode == XRNode.RightHand) {
-                moveable.StartRotating();
-            }
+        if (args.interactorObject.transform.name.Contains("Left"))
+        {
+            moveable.StartPushing();
+        }
+        else if (args.interactorObject.transform.name.Contains("Right")) 
+        {
+            moveable.StartRotating();
         }
     }
 
     private void OnSelectExited(SelectExitEventArgs args, Moveable moveable)
     {
-        var controller = args.interactorObject.transform.GetComponent<XRController>();
-        if (controller != null) {
-            if (controller.controllerNode == XRNode.LeftHand) {
-                moveable.StopPushing();
-            } else if (controller.controllerNode == XRNode.RightHand) {
-                moveable.StopRotating();
-            }
+        if (args.interactorObject.transform.name.Contains("Left"))
+        {
+            moveable.StopPushing();
+        }
+        else if (args.interactorObject.transform.name.Contains("Right")) 
+        {
+            moveable.StopRotating();
         }
     }
 

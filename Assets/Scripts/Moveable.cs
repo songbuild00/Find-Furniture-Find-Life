@@ -8,7 +8,7 @@ public class Moveable : MonoBehaviour
 {
     public float pushSpeed = 2f;
     public float canPushDistance = 5f;
-    public float rotateSpeed = 2f;
+    public float rotateSpeed = 50f;
     public float canRotateDistance = 5f;
     public GameObject player;
 
