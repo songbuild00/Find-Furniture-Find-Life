@@ -7,6 +7,10 @@ TagManager:
   - PlayerHand
   - Furniture-Chair
   - Furniture-Table
+  - Furniture-Bed
+  - Furniture-Wardrobe
+  - Furniture-Lamp
+  - Furniture-Frame
   layers:
   - Default
   - TransparentFX
