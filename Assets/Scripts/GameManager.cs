@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -20,6 +17,10 @@ public class GameManager : MonoBehaviour
 
     public CanvasGroup fadeCanvasGroup;
     public float fadeDuration = 1.0f;
+
+    public GameObject homeUI;
+    public GameObject conditionTextUI;
+    public GameObject shopUI;
 
     private bool started = false;
     private string currentStage;
@@ -66,14 +67,16 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         started = true;
-        // UI 끄기
-        // 오른손에 상점, 왼손에 요청 목록
+        homeUI.SetActive(false);
+        conditionTextUI.SetActive(true);
+        shopUI.SetActive(true);
     }
     
     public void StopGameAndCheckConditions()
     {
         started = false;
-        // UI 끄기
+        conditionTextUI.SetActive(false);
+        shopUI.SetActive(false);
         GameStage stage = FindStageByName(currentStage);
         if (stage != null) {
             // 조건 확인 후 완료 시, 다음 스테이지로 이동
@@ -88,6 +91,22 @@ public class GameManager : MonoBehaviour
                 Debug.Log("No Clear!");
             }
         }
+    }
+
+    public void StartGameButton()
+    {
+        Debug.Log("Test!");
+        LoadSceneWithFade("Scenes/HomeScene");
+    }
+
+    public void GoHome()
+    {
+        homeUI.SetActive(true);
+    }
+
+    public void TestLoadHomeScene()
+    {
+        LoadSceneWithFade("Scenes/HomeScene");
     }
 
     public void TestSpawnFurniture0() {
