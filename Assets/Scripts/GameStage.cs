@@ -10,6 +10,7 @@ public class GameStage
 {
     public string stageName;
     public List<Condition> conditions;
+    [TextArea(1, 10)]
     public string conditionText;
 
     public string nextStage;
