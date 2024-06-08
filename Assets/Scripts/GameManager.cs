@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public GameObject shopUI;
     public GameObject stageViewUI;
     public GameObject requestDetailsUI;
+    public GameObject shopViewUI;
     public TMP_Text requestDetailsText;
     public TMP_Text conditionText;
     public GameEndUIManager gameEndUI;
@@ -59,9 +60,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+
     }
-    
+
     GameStage FindStageByName(string name)
     {
         foreach (var stage in stages)
@@ -123,7 +124,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    
+
     public void StopGameAndCheckConditions()
     {
         started = false;
@@ -133,7 +134,7 @@ public class GameManager : MonoBehaviour
         if (stage != null) {
             // 조건 확인 후 완료 시, 다음 스테이지로 이동
             float score = stage.CheckAllConditions();
-            if (score == 1.0) 
+            if (score == 1.0)
             {
                 Debug.Log("Clear!");
             }
@@ -158,6 +159,18 @@ public class GameManager : MonoBehaviour
     public void EnableStageViewUI()
     {
         stageViewUI.SetActive(true);
+    }
+
+    public void EnableShopViewUI()
+    {
+        if (!shopViewUI.activeSelf)
+        {
+            shopViewUI.SetActive(true);
+        }
+        else
+        {
+            shopViewUI.SetActive(false);
+        }
     }
 
     public void ClickStage(string stageName)
