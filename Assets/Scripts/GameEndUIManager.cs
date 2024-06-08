@@ -34,9 +34,15 @@ public class GameEndUIManager : MonoBehaviour
         starRating.UpdateStars(score);
         coinText.text = coin + "";
 
-        replayButton.onClick.AddListener(() => GameManager.Instance.StartGame());
+        replayButton.onClick.AddListener(() => OnReplayButtonClick());
         homeButton.onClick.AddListener(() => OnHomeButtonClick());
         nextButton.onClick.AddListener(() => OnNextButtonClick());
+    }
+
+    private void OnReplayButtonClick()
+    {
+        GameManager.Instance.StartGame();
+        gameObject.SetActive(false);
     }
 
     private void OnHomeButtonClick()
@@ -46,6 +52,7 @@ public class GameEndUIManager : MonoBehaviour
             GameManager.Instance.NextStage();
         }
         GameManager.Instance.StartGameButton();
+        gameObject.SetActive(false);
     }
 
     private void OnNextButtonClick()
@@ -55,5 +62,6 @@ public class GameEndUIManager : MonoBehaviour
             GameManager.Instance.NextStage();
         }
         GameManager.Instance.StartGame();
+        gameObject.SetActive(false);
     }
 }
