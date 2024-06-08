@@ -31,10 +31,13 @@ public class FurnitureModel
     {
         Moveable moveable = gameObject.AddComponent<Moveable>();
         moveable.player = playerObject;
-        
+
         Rigidbody rigidbody = gameObject.AddComponent<Rigidbody>();
 
-        if (size.x >= 0 && size.y >= 0 && size.z >= 0) {
+        rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
+
+        if (size.x >= 0 && size.y >= 0 && size.z >= 0)
+        {
             BoxCollider boxCollider = gameObject.AddComponent<BoxCollider>();
             boxCollider.center = center;
             boxCollider.size = size;
@@ -57,7 +60,7 @@ public class FurnitureModel
         {
             moveable.StartPushing();
         }
-        else if (args.interactorObject.transform.name.Contains("Right")) 
+        else if (args.interactorObject.transform.name.Contains("Right"))
         {
             moveable.StartRotating();
         }
@@ -69,7 +72,7 @@ public class FurnitureModel
         {
             moveable.StopPushing();
         }
-        else if (args.interactorObject.transform.name.Contains("Right")) 
+        else if (args.interactorObject.transform.name.Contains("Right"))
         {
             moveable.StopRotating();
         }

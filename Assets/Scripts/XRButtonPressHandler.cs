@@ -20,7 +20,7 @@ public class XRButtonPressHandler : MonoBehaviour
     {
         conditionUIActionReference.action.performed -= OnConditionUIPerformed;
         conditionUIActionReference.action.Disable();
-        
+
         shopUIActionReference.action.performed -= OnShopUIPerformed;
         shopUIActionReference.action.Disable();
     }

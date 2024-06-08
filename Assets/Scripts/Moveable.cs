@@ -22,14 +22,14 @@ public class Moveable : MonoBehaviour
 
     void Update()
     {
-        if (isPushing && 
+        if (isPushing &&
             Vector3.Distance(player.transform.position, transform.position) <= canPushDistance)
         {
             Vector3 pushDirection = player.transform.forward;
             transform.Translate(pushDirection * pushSpeed * Time.deltaTime, Space.World);
         }
 
-        if (isRotating && 
+        if (isRotating &&
             Vector3.Distance(player.transform.position, transform.position) <= canRotateDistance)
         {
             transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
