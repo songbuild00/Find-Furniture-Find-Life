@@ -250,7 +250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &314350054
 Transform:
   m_ObjectHideFlags: 0
@@ -2086,6 +2086,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 6143732073608284779, guid: e4b2839fffa90bc4c8982cab6c3e8d3c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7215557345101223327, guid: e4b2839fffa90bc4c8982cab6c3e8d3c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2201,6 +2205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bed
       objectReference: {fileID: 0}
+    - target: {fileID: 7126404746070976363, guid: 52bce338a01270841a81387c6565ac54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2217,6 +2225,10 @@ PrefabInstance:
     - target: {fileID: 2055218239954816363, guid: 0f75eb8029ab75c4c9dd642483afa8e3, type: 3}
       propertyPath: m_Name
       value: Trash
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055218239954816363, guid: 0f75eb8029ab75c4c9dd642483afa8e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4326079772020104509, guid: 0f75eb8029ab75c4c9dd642483afa8e3, type: 3}
       propertyPath: m_RootOrder
@@ -2278,6 +2290,10 @@ PrefabInstance:
     - target: {fileID: 402936130833944615, guid: 9f812c92313027b4ca034c1c2b3231b3, type: 3}
       propertyPath: m_Name
       value: Table_Computer
+      objectReference: {fileID: 0}
+    - target: {fileID: 402936130833944615, guid: 9f812c92313027b4ca034c1c2b3231b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6964706380151273221, guid: 9f812c92313027b4ca034c1c2b3231b3, type: 3}
       propertyPath: m_RootOrder
@@ -2384,6 +2400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dresser Closet
       objectReference: {fileID: 0}
+    - target: {fileID: 3029751096605116906, guid: 0fd7c98403fbc8e49a8d70108e3bb695, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2405,6 +2425,10 @@ PrefabInstance:
     - target: {fileID: 6049060936508555891, guid: e4aefb1a4d628f9409f79f5a350baca2, type: 3}
       propertyPath: m_Name
       value: Lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049060936508555891, guid: e4aefb1a4d628f9409f79f5a350baca2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6051024803945265167, guid: e4aefb1a4d628f9409f79f5a350baca2, type: 3}
       propertyPath: m_RootOrder
