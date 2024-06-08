@@ -131,6 +131,11 @@ public class GameManager : MonoBehaviour
         LoadSceneWithFade("Scenes/HomeScene");
     }
 
+    public void NextStage()
+    {
+        currentStage = FindStageByName(currentStage).nextStage;
+    }
+
     public void EnableStageViewUI()
     {
         stageViewUI.SetActive(true);
