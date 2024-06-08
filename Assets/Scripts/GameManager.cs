@@ -26,9 +26,11 @@ public class GameManager : MonoBehaviour
     public GameObject stageViewUI;
     public GameObject requestDetailsUI;
     public GameObject shopViewUI;
+    public GameObject settingViewUI;
     public TMP_Text requestDetailsText;
     public TMP_Text conditionText;
     public GameEndUIManager gameEndUI;
+   
 
     private bool started = false;
     private string currentStage;
@@ -170,6 +172,18 @@ public class GameManager : MonoBehaviour
         else
         {
             shopViewUI.SetActive(false);
+        }
+    }
+
+    public void EnableSettingViewUI()
+    {
+        if (!settingViewUI.activeSelf)
+        {
+            settingViewUI.SetActive(true);
+        }
+        else
+        {
+            settingViewUI.SetActive(false);
         }
     }
 

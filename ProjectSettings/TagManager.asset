@@ -15,6 +15,7 @@ TagManager:
   - Furniture-Rug
   - Furniture-Bookshelf
   - Furniture-Trashcan
+  - VolumeSlider
   layers:
   - Default
   - TransparentFX
