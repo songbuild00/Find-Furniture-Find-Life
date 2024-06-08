@@ -15,12 +15,15 @@ public class GameStage
     public string nextStage;
     public string prevStage;
 
-    public bool CheckAllConditions() {
+    public float CheckAllConditions() {
+        float score = 1.0f;
         foreach (var condition in conditions)
         {
-            if (!condition.Check()) return false;
+            if (!condition.Check()) {
+                score -= 1.0f / conditions.Count;
+            }
         }
-        return true;
+        return score;
     }
 
     [Serializable]

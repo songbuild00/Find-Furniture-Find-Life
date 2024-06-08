@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameManager : MonoBehaviour
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     public GameObject conditionTextUI;
     public GameObject shopUI;
     public GameObject stageViewUI;
+    public GameEndUIManager gameEndUI;
 
     private bool started = false;
     private string currentStage;
@@ -83,7 +86,23 @@ public class GameManager : MonoBehaviour
     {
         started = true;
         homeUI.SetActive(false);
+        SceneManager.sceneLoaded += OnLoadGameScene;
         LoadSceneWithFade("Scenes/GameScene");
+    }
+
+    private void OnLoadGameScene(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnLoadGameScene;
+        GameObject doneButton = GameObject.Find("Done Button");
+        if (doneButton != null)
+        {
+            Button button = doneButton.GetComponent<Button>();
+            if (button != null)
+            {
+                Debug.Log("Button not null! Setting started!");
+                button.onClick.AddListener(() => StopGameAndCheckConditions());
+            }
+        }
     }
     
     public void StopGameAndCheckConditions()
@@ -94,16 +113,16 @@ public class GameManager : MonoBehaviour
         GameStage stage = FindStageByName(currentStage);
         if (stage != null) {
             // 조건 확인 후 완료 시, 다음 스테이지로 이동
-            if (stage.CheckAllConditions())
+            float score = stage.CheckAllConditions();
+            if (score == 1.0) 
             {
-                // 클리어 UI
                 Debug.Log("Clear!");
             }
             else
             {
-                // 실패
                 Debug.Log("No Clear!");
             }
+            gameEndUI.UISetting(score, score == 1.0 ? 1000 : 0);
         }
     }
 
