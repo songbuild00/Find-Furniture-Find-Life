@@ -10,6 +10,7 @@ public class GameStage
 {
     public string stageName;
     public List<Condition> conditions;
+    [TextArea(1, 10)]
     public string conditionText;
 
     public string nextStage;
@@ -59,12 +60,20 @@ public class GameStage
                     if (furniture.GetComponent<Colored>().color != valueS) return false;
                 }
             }
+            else if (type == ConditionType.EXISTS)
+            {
+                for (int i = 0; i < furnitureTypes.Count; i++)
+                {
+                    GameObject furniture = GameObject.FindGameObjectWithTag("Furniture-" + furnitureTypes[i].ToString());
+                    if (furniture == null) return false;
+                }
+            }
             return false;
         }
     }
 
     public enum ConditionType
     {
-        NEARBY, COLOR
+        NEARBY, COLOR, EXISTS
     }
 }

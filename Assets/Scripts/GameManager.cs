@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public GameObject conditionTextUI;
     public GameObject shopUI;
     public GameObject stageViewUI;
+    public GameObject requestDetailsUI;
+    public TMP_Text requestDetailsText;
+    public TMP_Text conditionText;
     public GameEndUIManager gameEndUI;
 
     private bool started = false;
@@ -68,11 +71,27 @@ public class GameManager : MonoBehaviour
         return null;
     }
 
+    public void ToggleRequestDetailsUI()
+    {
+        Debug.Log("Toggle Request Details!");
+        requestDetailsUI.SetActive(!requestDetailsUI.activeSelf);
+        if (requestDetailsUI.activeSelf)
+        {
+            GameStage stage = FindStageByName(currentStage);
+            requestDetailsText.text = stage.conditionText;
+        }
+    }
+
     public void ToggleConditionTextUI()
     {
         Debug.Log("Toggle Condition!");
         if (!started) return;
         conditionTextUI.SetActive(!conditionTextUI.activeSelf);
+        if (conditionTextUI.activeSelf)
+        {
+            GameStage stage = FindStageByName(currentStage);
+            conditionText.text = stage.conditionText;
+        }
     }
 
     public void ToggleShopUI()
@@ -129,6 +148,11 @@ public class GameManager : MonoBehaviour
     public void StartGameButton()
     {
         LoadSceneWithFade("Scenes/HomeScene");
+    }
+
+    public void NextStage()
+    {
+        currentStage = FindStageByName(currentStage).nextStage;
     }
 
     public void EnableStageViewUI()
