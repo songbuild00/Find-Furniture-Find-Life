@@ -670,7 +670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea0413200a28946e4b584e9b214815bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 3.5
   stars:
   - {fileID: 1086438724}
   - {fileID: 1446094744}
@@ -38387,6 +38386,9 @@ MonoBehaviour:
   starRating: {fileID: 17860344}
   scoreText: {fileID: 2099389521}
   coinText: {fileID: 475806419}
+  replayButton: {fileID: 2085443655}
+  homeButton: {fileID: 396389920}
+  nextButton: {fileID: 1600446607}
 --- !u!114 &1443212510
 MonoBehaviour:
   m_ObjectHideFlags: 0
