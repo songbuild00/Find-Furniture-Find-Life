@@ -15,7 +15,11 @@ public class CollisionSound : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        audioSource.Play();
+        // Check if the collided object has the "Furniture" tag
+        if (collision.gameObject.CompareTag("Furniture-"))
+        {
+            // Play the collision sound
+            audioSource.Play();
+        }
     }
 }
-
