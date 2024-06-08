@@ -24606,6 +24606,7 @@ MonoBehaviour:
     size: {x: 0.5, y: 0.8, z: 0.5}
     price: 200
     image: {fileID: 0}
+    color: 
   - type: 2
     model: {fileID: 919132149155446097, guid: f460c03b3c4174540b9abe3a6d92472b, type: 3}
     name: Table
@@ -24613,13 +24614,15 @@ MonoBehaviour:
     size: {x: 2.074194, y: 0.9715533, z: 1.314353}
     price: 200
     image: {fileID: 0}
+    color: 
   - type: 0
     model: {fileID: 7126404746070976363, guid: 52bce338a01270841a81387c6565ac54, type: 3}
     name: Bed
     center: {x: 0, y: 0.5, z: 0}
     size: {x: -1, y: -1, z: -1}
     price: 200
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: d3fa24b51b41f974e96c44bbd1979770, type: 3}
+    color: 
   - type: 3
     model: {fileID: 3029751096605116906, guid: 0fd7c98403fbc8e49a8d70108e3bb695, type: 3}
     name: Wardrobe
@@ -24627,20 +24630,23 @@ MonoBehaviour:
     size: {x: -1, y: -1, z: -1}
     price: 200
     image: {fileID: 21300000, guid: 397ff3e7382578d4c962c58825caea07, type: 3}
+    color: 
   - type: 4
     model: {fileID: 6049060936508555891, guid: e4aefb1a4d628f9409f79f5a350baca2, type: 3}
     name: Lamp
     center: {x: 0, y: 0.5, z: 0}
     size: {x: -1, y: -1, z: -1}
     price: 200
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 137913d5683090f4f90a7b47d6a3ac2d, type: 3}
+    color: 
   - type: 2
     model: {fileID: 402936130833944615, guid: 9f812c92313027b4ca034c1c2b3231b3, type: 3}
     name: Computer Table
     center: {x: 0, y: 0.5, z: 0}
     size: {x: -1, y: -1, z: -1}
     price: 200
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 460f288542d9cc34c8df9ac82b8a2a8c, type: 3}
+    color: 
   - type: 6
     model: {fileID: 2156451756643900399, guid: 38bf527e87d74bf4baf5d5f3ea1a5fdc, type: 3}
     name: Rug
@@ -24648,13 +24654,15 @@ MonoBehaviour:
     size: {x: -1, y: -1, z: -1}
     price: 200
     image: {fileID: 0}
+    color: 
   - type: 7
     model: {fileID: 6143732073608284779, guid: e4b2839fffa90bc4c8982cab6c3e8d3c, type: 3}
     name: Bookshelf
     center: {x: 0, y: 0.5, z: 0}
     size: {x: -1, y: -1, z: -1}
     price: 200
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: dd9573293b2c99341be246fd2b5220bc, type: 3}
+    color: 
   - type: 8
     model: {fileID: 2055218239954816363, guid: 0f75eb8029ab75c4c9dd642483afa8e3, type: 3}
     name: Trashcan
@@ -24662,13 +24670,15 @@ MonoBehaviour:
     size: {x: -1, y: -1, z: -1}
     price: 200
     image: {fileID: 21300000, guid: 41e50d755c34bec4eb44ae33391cb615, type: 3}
+    color: 
   playerObject: {fileID: 1904498722}
   stages:
   - stageName: Tutorial
     conditions:
     - type: 0
       furnitureTypes: 0100000002000000
-      value: 3
+      valueD: 3
+      valueS: 
     conditionText: "\uC758\uC790\uC640 \uCC45\uC0C1\uC774 \uAC00\uAE4C\uC774 \uC788\uC5B4\uC57C
       \uD574!"
     nextStage: Test
