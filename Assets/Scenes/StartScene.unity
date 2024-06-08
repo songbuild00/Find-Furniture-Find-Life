@@ -25606,9 +25606,17 @@ MonoBehaviour:
   - stageName: 1-1
     conditions:
     - type: 0
-      furnitureTypes: 0100000002000000
+      furnitureTypes: 0200000008000000
       valueD: 3
       valueS: 
+    - type: 2
+      furnitureTypes: 0000000002000000
+      valueD: 0
+      valueS: 
+    - type: 1
+      furnitureTypes: 00000000020000000100000003000000040000000700000008000000
+      valueD: 0
+      valueS: WHITE
     conditionText: 'Me :
 
       I want  bed and computer desk.
@@ -25617,9 +25625,9 @@ MonoBehaviour:
       furniture.
 
       I wish the trash can was next to the desk.'
-    nextStage: Test
+    nextStage: 1-2
     prevStage: 
-  - stageName: Test
+  - stageName: 1-2
     conditions: []
     conditionText: 
     nextStage: 
