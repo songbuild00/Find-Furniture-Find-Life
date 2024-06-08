@@ -28,7 +28,8 @@ public class GameStage
     {
         public ConditionType type;
         public List<FurnitureModel.FurnitureType> furnitureTypes;
-        public double value;
+        public double valueD;
+        public string valueS;
 
         public bool Check()
         {
@@ -41,10 +42,19 @@ public class GameStage
                         GameObject furniture1 = GameObject.FindGameObjectWithTag("Furniture-" + furnitureTypes[i].ToString());
                         GameObject furniture2 = GameObject.FindGameObjectWithTag("Furniture-" + furnitureTypes[j].ToString());
                         if (furniture1 == null || furniture2 == null) return false;
-                        if (Vector3.Distance(furniture1.transform.position, furniture2.transform.position) > value) return false;
+                        if (Vector3.Distance(furniture1.transform.position, furniture2.transform.position) > valueD) return false;
                     }
                 }
                 return true;
+            }
+            else if (type == ConditionType.COLOR)
+            {
+                for (int i = 0; i < furnitureTypes.Count; i++) 
+                {
+                    GameObject furniture = GameObject.FindGameObjectWithTag("Furniture-" + furnitureTypes[i].ToString());
+                    if (furniture == null) return false;
+                    if (furniture.GetComponent<Colored>().color != valueS) return false;
+                }
             }
             return false;
         }
@@ -52,6 +62,6 @@ public class GameStage
 
     public enum ConditionType
     {
-        NEARBY
+        NEARBY, COLOR
     }
 }

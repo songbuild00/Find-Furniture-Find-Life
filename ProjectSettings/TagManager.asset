@@ -11,6 +11,10 @@ TagManager:
   - Furniture-Wardrobe
   - Furniture-Lamp
   - Furniture-Frame
+  - SpawnPoint
+  - Furniture-Rug
+  - Furniture-Bookshelf
+  - Furniture-Trashcan
   layers:
   - Default
   - TransparentFX

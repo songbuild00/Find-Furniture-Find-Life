@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject homeUI;
     public GameObject conditionTextUI;
     public GameObject shopUI;
+    public GameObject stageViewUI;
 
     private bool started = false;
     private string currentStage;
@@ -64,12 +65,25 @@ public class GameManager : MonoBehaviour
         return null;
     }
 
+    public void ToggleConditionTextUI()
+    {
+        Debug.Log("Toggle Condition!");
+        if (!started) return;
+        conditionTextUI.SetActive(!conditionTextUI.activeSelf);
+    }
+
+    public void ToggleShopUI()
+    {
+        Debug.Log("Toggle Shop!");
+        if (!started) return;
+        shopUI.SetActive(!shopUI.activeSelf);
+    }
+
     public void StartGame()
     {
         started = true;
         homeUI.SetActive(false);
-        conditionTextUI.SetActive(true);
-        shopUI.SetActive(true);
+        LoadSceneWithFade("Scenes/GameScene");
     }
     
     public void StopGameAndCheckConditions()
@@ -95,18 +109,18 @@ public class GameManager : MonoBehaviour
 
     public void StartGameButton()
     {
-        Debug.Log("Test!");
         LoadSceneWithFade("Scenes/HomeScene");
     }
 
-    public void GoHome()
+    public void EnableStageViewUI()
     {
-        homeUI.SetActive(true);
+        stageViewUI.SetActive(true);
     }
 
-    public void TestLoadHomeScene()
+    public void ClickStage(string stageName)
     {
-        LoadSceneWithFade("Scenes/HomeScene");
+        currentStage = stageName;
+        stageViewUI.SetActive(false);
     }
 
     public void TestSpawnFurniture0() {
@@ -138,8 +152,22 @@ public class GameManager : MonoBehaviour
     private IEnumerator FadeAndLoadScene(string sceneName)
     {
         yield return StartCoroutine(Fade(1));
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(sceneName);
+
         yield return StartCoroutine(Fade(0));
+    }
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        GameObject spawnPoint = GameObject.FindWithTag("SpawnPoint");
+        if (spawnPoint != null)
+        {
+            playerObject.transform.position = spawnPoint.transform.position;
+            playerObject.transform.rotation = spawnPoint.transform.rotation;
+        }
     }
 
     private IEnumerator Fade(float targetAlpha)

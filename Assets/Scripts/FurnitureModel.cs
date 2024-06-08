@@ -13,14 +13,18 @@ public class FurnitureModel
     public Vector3 center;
     public Vector3 size;
     public int price;
+    public Sprite image;
+    public string color;
 
-    public FurnitureModel(GameObject model, string name, Vector3 center, Vector3 size, int price)
+    public FurnitureModel(GameObject model, string name, Vector3 center, Vector3 size, int price, Sprite image, string color)
     {
         this.model = model;
         this.name = name;
         this.center = center;
         this.size = size;
         this.price = price;
+        this.image = image;
+        this.color = color;
     }
 
     public void InstantiateSetting(GameObject gameObject, GameObject playerObject)
@@ -28,15 +32,20 @@ public class FurnitureModel
         Moveable moveable = gameObject.AddComponent<Moveable>();
         moveable.player = playerObject;
 
-        Rigidbody rigidbody = gameObject.AddComponent<Rigidbody>();
+        if (size.x >= 0 && size.y >= 0 && size.z >= 0) {
+            Rigidbody rigidbody = gameObject.AddComponent<Rigidbody>();
 
-        BoxCollider boxCollider = gameObject.AddComponent<BoxCollider>();
-        boxCollider.center = center;
-        boxCollider.size = size;
+            BoxCollider boxCollider = gameObject.AddComponent<BoxCollider>();
+            boxCollider.center = center;
+            boxCollider.size = size;
+        }
 
         XRSimpleInteractable simpleInteractable = gameObject.AddComponent<XRSimpleInteractable>();
         simpleInteractable.selectEntered.AddListener((args) => OnSelectEntered(args, moveable));
         simpleInteractable.selectExited.AddListener((args) => OnSelectExited(args, moveable));
+
+        Colored colored = gameObject.AddComponent<Colored>();
+        colored.color = color;
 
         gameObject.tag = "Furniture-" + type.ToString();
         Debug.Log("Spawned!");
@@ -68,6 +77,6 @@ public class FurnitureModel
 
     public enum FurnitureType
     {
-        Bed, Chair, Table, Wardrobe, Lamp, Frame
+        Bed, Chair, Table, Wardrobe, Lamp, Frame, Rug, Bookshelf, Trashcan
     }
 }
