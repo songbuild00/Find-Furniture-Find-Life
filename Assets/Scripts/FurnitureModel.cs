@@ -31,10 +31,10 @@ public class FurnitureModel
     {
         Moveable moveable = gameObject.AddComponent<Moveable>();
         moveable.player = playerObject;
+        
+        Rigidbody rigidbody = gameObject.AddComponent<Rigidbody>();
 
         if (size.x >= 0 && size.y >= 0 && size.z >= 0) {
-            Rigidbody rigidbody = gameObject.AddComponent<Rigidbody>();
-
             BoxCollider boxCollider = gameObject.AddComponent<BoxCollider>();
             boxCollider.center = center;
             boxCollider.size = size;

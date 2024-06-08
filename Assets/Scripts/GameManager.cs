@@ -123,16 +123,9 @@ public class GameManager : MonoBehaviour
         stageViewUI.SetActive(false);
     }
 
-    public void TestSpawnFurniture0() {
-        SpawnFurniture(0, playerObject.transform.position + new Vector3(0, 2, -5));
-    }
-
-    public void TestSpawnFurniture1() {
-        SpawnFurniture(1, playerObject.transform.position + new Vector3(0, 2, -3));
-    }
-
     public void SpawnFurniture(int index, Vector3 position)
     {
+        Debug.Log("Index: " + index);
         if (index >= 0 && index < furnitureModels.Count)
         {
             GameObject spawnedObject = Instantiate(furnitureModels[index].model, position, Quaternion.identity);

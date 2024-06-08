@@ -7,7 +7,7 @@ public class ShopUIManager : MonoBehaviour
 {
     public Transform contentPanel;
     public GameObject furnitureCardPrefab;
-    public TMPro.TMP_Dropdown categoryDropdown;
+    public TMP_Dropdown categoryDropdown;
 
     void Start()
     {
@@ -44,21 +44,22 @@ public class ShopUIManager : MonoBehaviour
 
         for (int i = 0; i < GameManager.Instance.furnitureModels.Count; i++)
         {
-            var model = GameManager.Instance.furnitureModels[i];
+            int index = i;
+            var model = GameManager.Instance.furnitureModels[index];
             if (model.type == selectedType)
             {
                 GameObject card = Instantiate(furnitureCardPrefab, contentPanel);
                 card.transform.Find("ModelImage").GetComponent<Image>().sprite = model.image;
-                card.transform.Find("PriceText").GetComponent<TMP_Text>().text = $"${model.price}";
+                // card.transform.Find("PriceText").GetComponent<TMP_Text>().text = $"${model.price}";
                 
                 Button button = card.GetComponent<Button>();
-                button.onClick.AddListener(() => OnFurnitureCardClicked(i));
+                button.onClick.AddListener(() => OnFurnitureCardClicked(index));
             }
         }
     }
 
     private void OnFurnitureCardClicked(int index)
     {
-        GameManager.Instance.SpawnFurniture(0, GameManager.Instance.playerObject.transform.position);
+        GameManager.Instance.SpawnFurniture(index, GameManager.Instance.playerObject.transform.position);
     }
 }
