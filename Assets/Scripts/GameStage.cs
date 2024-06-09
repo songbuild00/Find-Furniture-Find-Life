@@ -56,8 +56,8 @@ public class GameStage
                 for (int i = 0; i < furnitureTypes.Count; i++) 
                 {
                     GameObject furniture = GameObject.FindGameObjectWithTag("Furniture-" + furnitureTypes[i].ToString());
-                    if (furniture == null) return false;
-                    if (furniture.GetComponent<Colored>().color != valueS) return false;
+                    if (furniture == null) continue;
+                    if (furniture.GetComponent<Colored>().color != valueS) continue;
                     return true;
                 }
                 return false;
