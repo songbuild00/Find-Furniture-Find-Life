@@ -30,10 +30,12 @@ public class GameManager : MonoBehaviour
     public TMP_Text requestDetailsText;
     public TMP_Text conditionText;
     public GameEndUIManager gameEndUI;
+    public TMP_Text coinText;
    
 
     private bool started = false;
     private string currentStage;
+    private int coin = 0;
 
     void Awake()
     {
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        coinText.text = coin + "";
     }
 
     GameStage FindStageByName(string name)
@@ -144,13 +146,14 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("No Clear!");
             }
-            gameEndUI.UISetting(score, score == 1.0 ? 1000 : 0);
+            gameEndUI.UISetting(score * 5, score == 1.0 ? 1000 : 0);
         }
     }
 
     public void StartGameButton()
     {
         LoadSceneWithFade("Scenes/HomeScene");
+        homeUI.SetActive(true);
     }
 
     public void NextStage()
@@ -246,5 +249,10 @@ public class GameManager : MonoBehaviour
         }
 
         fadeCanvasGroup.alpha = targetAlpha;
+    }
+
+    public void AddCoin(int coin)
+    {
+        this.coin += coin;
     }
 }

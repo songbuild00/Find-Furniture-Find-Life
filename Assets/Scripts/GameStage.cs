@@ -58,7 +58,9 @@ public class GameStage
                     GameObject furniture = GameObject.FindGameObjectWithTag("Furniture-" + furnitureTypes[i].ToString());
                     if (furniture == null) return false;
                     if (furniture.GetComponent<Colored>().color != valueS) return false;
+                    return true;
                 }
+                return false;
             }
             else if (type == ConditionType.EXISTS)
             {
@@ -67,6 +69,7 @@ public class GameStage
                     GameObject furniture = GameObject.FindGameObjectWithTag("Furniture-" + furnitureTypes[i].ToString());
                     if (furniture == null) return false;
                 }
+                return true;
             }
             return false;
         }

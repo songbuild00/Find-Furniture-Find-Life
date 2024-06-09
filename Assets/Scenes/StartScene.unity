@@ -9003,6 +9003,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Device Simulator
       objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26861,7 +26865,7 @@ MonoBehaviour:
     size: {x: 2.074194, y: 0.9715533, z: 1.314353}
     price: 200
     image: {fileID: 0}
-    color: 
+    color: WHITE
   - type: 0
     model: {fileID: 7126404746070976363, guid: 52bce338a01270841a81387c6565ac54, type: 3}
     name: Bed
@@ -26926,14 +26930,11 @@ MonoBehaviour:
       furnitureTypes: 00000000020000000100000003000000040000000700000008000000
       valueD: 0
       valueS: WHITE
-    conditionText: 'Me :
-
-      I want  bed and computer desk.
-
-      I love white
-      furniture.
-
-      I wish the trash can was next to the desk.'
+    conditionText: "\uB098 : \n\uB098\uB294 \uCEF4\uD4E8\uD130 \uCC45\uC0C1\uC774
+      \uCC3D\uBB38 \uADFC\uCC98\uC5D0 \uC788\uC73C\uBA74 \uC88B\uC744 \uAC83 \uAC19\uC544\n\uD558\uC580\uC0C9\uC774
+      \uB4E4\uC5B4\uAC04 \uAC00\uAD6C\uAC00 3 \uAC00\uC9C0 \uC774\uC0C1 \uC788\uC5B4\uC57C\uD574\n\uAE38\uC774\uAC00
+      \uAE34 \uB7A8\uD504\uAC00 \uD544\uC694\uD574\n\uAC19\uC740 \uAC00\uAD6C \uC5C6\uC774
+      6\uAC00\uC9C0\uB97C \uBC30\uCE58\uD574\uC57C\uD574"
     nextStage: 1-2
     prevStage: 
   - stageName: 1-2
@@ -26954,6 +26955,7 @@ MonoBehaviour:
   requestDetailsText: {fileID: 1266970545}
   conditionText: {fileID: 913033933}
   gameEndUI: {fileID: 1443212509}
+  coinText: {fileID: 574419595}
 --- !u!4 &961007755
 Transform:
   m_ObjectHideFlags: 0

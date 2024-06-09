@@ -33,6 +33,7 @@ public class GameEndUIManager : MonoBehaviour
         scoreText.text = Math.Round(score, 1) + " / 5.0";
         starRating.UpdateStars(score);
         coinText.text = coin + "";
+        GameManager.Instance.AddCoin(coin);
 
         replayButton.onClick.AddListener(() => OnReplayButtonClick());
         homeButton.onClick.AddListener(() => OnHomeButtonClick());
