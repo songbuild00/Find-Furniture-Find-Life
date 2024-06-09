@@ -4340,7 +4340,7 @@ GameObject:
   - component: {fileID: 177736329}
   - component: {fileID: 177736328}
   m_Layer: 5
-  m_Name: Button
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4419,7 +4419,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 1-1
+          m_StringArgument: 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &177736329
@@ -4542,7 +4542,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1901405993}
   m_HandleRect: {fileID: 1901405992}
   m_Direction: 2
-  m_Value: 0.9999997
+  m_Value: 1
   m_Size: 0.6666667
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -12776,7 +12776,7 @@ GameObject:
   - component: {fileID: 481806371}
   - component: {fileID: 481806370}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: 2-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12799,7 +12799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32.2, y: 52.3}
+  m_AnchoredPosition: {x: -3.9, y: 52.3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &481806370
@@ -12841,7 +12841,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 481806371}
   m_OnClick:
     m_PersistentCalls:
@@ -12855,7 +12855,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 1-1
+          m_StringArgument: 2-1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &481806371
@@ -26916,33 +26916,37 @@ MonoBehaviour:
     color: BLACK
   playerObject: {fileID: 1904498722}
   stages:
-  - stageName: 1-1
+  - stageName: 1
     conditions:
     - type: 0
       furnitureTypes: 0200000008000000
       valueD: 3
       valueS: 
+      valueI: 0
     - type: 2
-      furnitureTypes: 0000000002000000
+      furnitureTypes: 04000000
       valueD: 0
       valueS: 
+      valueI: 0
     - type: 1
-      furnitureTypes: 00000000020000000100000003000000040000000700000008000000
+      furnitureTypes: 
       valueD: 0
       valueS: WHITE
-    conditionText: "\uB098 : \n\uB098\uB294 \uCEF4\uD4E8\uD130 \uCC45\uC0C1\uC774
-      \uCC3D\uBB38 \uADFC\uCC98\uC5D0 \uC788\uC73C\uBA74 \uC88B\uC744 \uAC83 \uAC19\uC544\n\uD558\uC580\uC0C9\uC774
+      valueI: 3
+    conditionText: "\uB098 : \n\uB098\uB294 \uC4F0\uB808\uAE30\uD1B5\uC774 \uCC45\uC0C1
+      \uADFC\uCC98\uC5D0 \uC788\uC73C\uBA74 \uC88B\uC744 \uAC83 \uAC19\uC544\n\uD558\uC580\uC0C9\uC774
       \uB4E4\uC5B4\uAC04 \uAC00\uAD6C\uAC00 3 \uAC00\uC9C0 \uC774\uC0C1 \uC788\uC5B4\uC57C\uD574\n\uAE38\uC774\uAC00
-      \uAE34 \uB7A8\uD504\uAC00 \uD544\uC694\uD574\n\uAC19\uC740 \uAC00\uAD6C \uC5C6\uC774
-      6\uAC00\uC9C0\uB97C \uBC30\uCE58\uD574\uC57C\uD574"
-    nextStage: 1-2
+      \uAE34 \uB7A8\uD504\uAC00 \uD544\uC694\uD574"
+    nextStage: 2-1
     prevStage: 
-  - stageName: 1-2
+    stageButton: {fileID: 177736328}
+  - stageName: 2-1
     conditions: []
     conditionText: 
     nextStage: 
-    prevStage: 
-  startStage: 1-1
+    prevStage: 1
+    stageButton: {fileID: 481806370}
+  startStage: 1
   fadeCanvasGroup: {fileID: 1354750892}
   fadeDuration: 2
   homeUI: {fileID: 1108603811}
@@ -36405,7 +36409,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Request Details
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5908b1581de78f54f847ba7f6c43799e, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -36469,7 +36473,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1266970546

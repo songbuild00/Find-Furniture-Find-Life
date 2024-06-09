@@ -159,6 +159,7 @@ public class GameManager : MonoBehaviour
     public void NextStage()
     {
         currentStage = FindStageByName(currentStage).nextStage;
+        FindStageByName(currentStage).stageButton.interactable = true;
     }
 
     public void EnableStageViewUI()

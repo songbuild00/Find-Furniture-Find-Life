@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Collections;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public class GameStage
@@ -15,6 +16,8 @@ public class GameStage
 
     public string nextStage;
     public string prevStage;
+
+    public Button stageButton;
 
     public float CheckAllConditions() {
         float score = 1.0f;
@@ -34,6 +37,7 @@ public class GameStage
         public List<FurnitureModel.FurnitureType> furnitureTypes;
         public double valueD;
         public string valueS;
+        public int valueI;
 
         public bool Check()
         {
@@ -53,13 +57,16 @@ public class GameStage
             }
             else if (type == ConditionType.COLOR)
             {
-                for (int i = 0; i < furnitureTypes.Count; i++) 
+                int count = 0;
+                foreach (FurnitureModel.FurnitureType type in Enum.GetValues(typeof(FurnitureModel.FurnitureType)))
                 {
-                    GameObject furniture = GameObject.FindGameObjectWithTag("Furniture-" + furnitureTypes[i].ToString());
-                    if (furniture == null) continue;
-                    if (furniture.GetComponent<Colored>().color != valueS) continue;
-                    return true;
+                    GameObject[] furnitures = GameObject.FindGameObjectsWithTag("Furniture-" + type.ToString());
+                    foreach (GameObject furniture in furnitures)
+                    {
+                        if (furniture.GetComponent<Colored>().color == valueS) count++;
+                    }
                 }
+                if (count >= valueI) return true;
                 return false;
             }
             else if (type == ConditionType.EXISTS)
